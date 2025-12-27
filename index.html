@@ -7,10 +7,9 @@
 <style>
   body {
     font-family: 'Cairo', sans-serif;
-    background: url('school.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background-color: #87CEFA; /* سماء زرقاء كخلفية افتراضية */
     margin: 0;
-    color: #fff;
+    color: #333;
     padding-top: 60px;
     display: flex;
     flex-direction: column;
@@ -48,7 +47,6 @@
     100% { transform: translateX(100%); }
   }
 
-  /* رسالة المدير تحت الشريط */
   .director-message {
     text-align:center;
     background:#333;
@@ -58,10 +56,8 @@
     font-size:16px;
   }
 
-  /* التطبيق */
   .app {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 20px;
     width: 95%;
@@ -73,18 +69,11 @@
     flex-shrink: 0;
   }
 
-  @keyframes slide {
-    0% { transform: translateX(-100%); opacity: 0; }
-    50% { transform: translateX(0); opacity: 1; }
-    100% { transform: translateX(100%); opacity: 0; }
-  }
-
   .school-name {
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 5px;
-    animation: slide 8s linear infinite;
-    white-space: nowrap;
+    color: #1a1a1a;
   }
 
   .director {
@@ -93,7 +82,7 @@
     right: 15px;
     font-size: 12px;
     font-weight: normal;
-    color: #fff;
+    color: #000;
     opacity: 0.9;
     line-height: 1.4;
   }
@@ -102,9 +91,7 @@
     font-size: 32px;
     font-weight: bold;
     margin-top: 20px;
-    color: #ffd700;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-    font-family: 'Cairo', sans-serif;
+    color: #ff4500;
   }
 
   .buttons-container {
@@ -131,7 +118,6 @@
     box-shadow: 0 8px 15px rgba(0,0,0,0.3);
   }
 
-  /* النوافذ المنبثقة */
   .modal {
     display: none;
     position: fixed;
@@ -146,12 +132,12 @@
   }
 
   .modal-content {
-    background: rgba(0,0,0,0.8);
+    background: rgba(255, 255, 255, 0.95);
     padding: 20px;
     border-radius: 15px;
     max-width: 600px;
     width: 90%;
-    color: #fff;
+    color: #000;
     overflow-x: auto;
     max-height: 90vh;
     position: relative;
@@ -176,27 +162,21 @@
   th, td {
     padding: 8px;
     text-align: center;
-    border: 1px solid #fff;
+    border: 1px solid #000;
     font-size: 14px;
-    word-wrap: break-word;
   }
 
   th {
-    background: rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.2);
     font-weight: bold;
   }
 
   tr:nth-child(even) {
-    background: rgba(255,255,255,0.1);
-  }
-
-  .break {
-    background: rgba(255,255,255,0.3);
-    font-style: italic;
+    background: rgba(0,0,0,0.05);
   }
 
   .day-name {
-    background: rgba(255,255,255,0.25);
+    background: rgba(0,0,0,0.1);
     font-weight: bold;
     font-size: 16px;
   }
@@ -212,12 +192,26 @@
     font-size: 16px;
   }
 
-  /* حاوية الأزرار أسفل الصفحة */
   .footer {
     width: 100%;
     padding: 10px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.2);
     box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
+  }
+
+  /* صور افتراضية */
+  .school-image {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 15px;
+  }
+
+  .images-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
   }
 </style>
 </head>
@@ -226,13 +220,12 @@
 <!-- شريط الأخبار -->
 <div class="news-bar-container">
   <div class="news-wrapper">
-    <span>📰 عاجل: ثانوية تستعد لطرد التلاميذ في الفصل الثاني والسبب مجهول&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <span>📰 عاجل: زيـاتي علاء الدين يصبح مدير للثانوية&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span>📰 عاجل: ظهور إرهابية تدعى زقنون واتباعها بوزيدي بحوزتهم أسلحة من نوع AK وقنابل يدوية&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>📰 عاجل: ظهور حدث مهم في المدرسة&nbsp;&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 
-<!-- رسالة المدير تحت شريط الأخبار -->
+<!-- رسالة المدير -->
 <div class="director-message">
   مع تمنياتي لكم بالنجاح - مدير المؤسسة: زيـاتي علاء الدين
 </div>
@@ -241,19 +234,26 @@
   <div class="director">
     مكتب المدير: زيـاتي علاء الدين<br>
     مسؤول القسم: حليمي إسلام<br>
-    <span style="font-size:12px; font-weight:bold; color:#ffd700;">صنع من طرف علاء الدين زيـاتي</span>
+    <span style="font-size:12px; font-weight:bold; color:#ff4500;">صنع من طرف علاء الدين زيـاتي</span>
   </div>
   <div class="school-name">ثانوية بن نابي سليمان</div>
   <div class="class-name">قسم 2ع2</div>
+
+  <!-- صور افتراضية في إطار المدرسة -->
+  <div class="images-container">
+    <img src="https://img.icons8.com/color/96/school.png" class="school-image" alt="school">
+    <img src="https://img.icons8.com/color/96/book.png" class="school-image" alt="book">
+    <img src="https://img.icons8.com/color/96/student-male.png" class="school-image" alt="student">
+    <img src="https://img.icons8.com/color/96/chalkboard.png" class="school-image" alt="chalkboard">
+  </div>
 </div>
 
-<!-- الأزرار أسفل الصفحة -->
 <div class="footer">
   <div class="buttons-container">
-    <button onclick="showModal()">📅 جدول الحصص</button>
-    <button onclick="showActivities()">🎭 أنشطة المدرسة</button>
-    <button onclick="window.location.href='mailto:momomomo3131m@gmail.com'">📞 اتصل بالمدرسة</button>
-    <button onclick="showStudents()">👨‍🎓 قائمة التلاميذ</button>
+    <button onclick="showModal()">📅 Timetable</button>
+    <button onclick="showActivities()">🎭 Activities</button>
+    <button onclick="window.location.href='mailto:momomomo3131m@gmail.com'">📞 Contact School</button>
+    <button onclick="showStudents()">👨‍🎓 Students List</button>
   </div>
 </div>
 
@@ -261,17 +261,15 @@
 <div id="timetableModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
-    <h2>جدول الحصص الأسبوعي - 2 علوم تجريبية</h2>
+    <h2>Timetable - 2 Sciences</h2>
     <table>
-      <!-- جدول الحصص كما في السابق -->
-      <tr class="day-name"><td colspan="3">الأحد</td></tr>
-      <tr><td></td><td>8:00 - 9:00</td><td>فرنسية</td></tr>
-      <tr><td></td><td>9:00 - 10:00</td><td>إنجليزية</td></tr>
-      <tr><td></td><td>10:00 - 12:00</td><td>رياضيات</td></tr>
-      <tr class="break"><td></td><td colspan="2">مساء</td></tr>
-      <tr><td></td><td>13:30 - 14:30</td><td>تاريخ</td></tr>
-      <tr><td></td><td>14:30 - 15:30</td><td>اللغة العربية</td></tr>
-      <!-- بقية الأيام كما كتبنا سابقاً -->
+      <tr class="day-name"><td colspan="3">Sunday</td></tr>
+      <tr><td></td><td>8:00 - 9:00</td><td>French</td></tr>
+      <tr><td></td><td>9:00 - 10:00</td><td>English</td></tr>
+      <tr><td></td><td>10:00 - 12:00</td><td>Math</td></tr>
+      <tr class="day-name"><td colspan="3">Evening</td></tr>
+      <tr><td></td><td>13:30 - 14:30</td><td>History</td></tr>
+      <tr><td></td><td>14:30 - 15:30</td><td>Arabic</td></tr>
     </table>
   </div>
 </div>
@@ -279,12 +277,12 @@
 <div id="activitiesModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeActivities()">&times;</span>
-    <h2>أنشطة المدرسة</h2>
+    <h2>Activities</h2>
     <ul>
-      <li>🏃‍♂️ العدو الريفي</li>
-      <li>🏐 الكرة الطائرة</li>
-      <li>⚽ كرة القدم</li>
-      <li>🧠 مسابقة الذكاء</li>
+      <li>🏃‍♂️ Cross Country</li>
+      <li>🏐 Volleyball</li>
+      <li>⚽ Football</li>
+      <li>🧠 Intelligence Competition</li>
     </ul>
   </div>
 </div>
@@ -292,38 +290,16 @@
 <div id="studentsModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeStudents()">&times;</span>
-    <h2>قائمة التلاميذ</h2>
-    <table>
-      <tr><th>رقم</th><th>الاسم</th></tr>
-      <tr><td>1</td><td>زياتي علاء الدين</td></tr>
-      <tr><td>2</td><td>بلحاجي محمد</td></tr>
-      <tr><td>3</td><td>سريان اسمة</td></tr>
-      <tr><td>4</td><td>رفاس إلياس</td></tr>
-      <tr><td>5</td><td>حليمي اسلام</td></tr>
-      <tr><td>6</td><td>بلعقون هيثم</td></tr>
-      <tr><td>7</td><td>محلحل ياسمين</td></tr>
-      <tr><td>8</td><td>تيرس مصطفى</td></tr>
-      <tr><td>9</td><td>بوزعتر حكيم</td></tr>
-      <tr><td>10</td><td>بن مشرنن ايمان</td></tr>
-      <tr><td>11</td><td>جيلالي نور</td></tr>
-      <tr><td>12</td><td>بلحاجي فتيحة</td></tr>
-      <tr><td>13</td><td>دريش بشرى</td></tr>
-      <tr><td>14</td><td>زقنون ريحان</td></tr>
-      <tr><td>15</td><td>ديناري دعاء</td></tr>
-      <tr><td>16</td><td>رزيقي اية</td></tr>
-      <tr><td>17</td><td>ولد سعدي ميساء</td></tr>
-      <tr><td>18</td><td>برياح شفيع</td></tr>
-      <tr><td>19</td><td>برحال صورية</td></tr>
-      <tr><td>20</td><td>بوزيدي طاهر</td></tr>
-      <tr><td>21</td><td>نورين العيد</td></tr>
-      <tr><td>22</td><td>محيمدا دعاء</td></tr>
-      <tr><td>23</td><td>ضاوية</td></tr>
-      <tr><td>24</td><td>لوح وفاء</td></tr>
-      <tr><td>25</td><td>بن ديدا عبدرحمن</td></tr>
-      <tr><td>26</td><td>بدر الدين بسملة</td></tr>
-      <tr><td>27</td><td>بشرى القصيرة</td></tr>
-      <tr><td>28</td><td>عماد</td></tr>
-    </table>
+    <h2>Students List</h2>
+    <ul>
+      <li>زيـاتي علاء الدين</li>
+      <li>بلحاجي محمد</li>
+      <li>سريان اسمة</li>
+      <li>رفاس إلياس</li>
+      <li>حليمي اسلام</li>
+      <li>بلعقون هيثم</li>
+      <li>عماد</li>
+    </ul>
   </div>
 </div>
 
