@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    justify-content: space-between;
+    justify-content: flex-start;
     direction: rtl;
   }
 
@@ -40,63 +40,44 @@
     animation: scrollNews 25s linear infinite;
   }
 
-  .news-wrapper span {
-    margin-left: 50px;
-  }
+  .news-wrapper span { margin-left: 50px; }
 
   @keyframes scrollNews {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
   }
 
-  /* اسم الثانوية مع جملة التحية متحركة */
+  /* الاسم والجملة المتحركة */
   .moving-header {
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-align: center;
-    margin-bottom: 15px;
+    margin: 20px 0;
   }
 
-  .school-name, .wish-message {
+  .wish-message, .school-name {
     display: inline-block;
     padding: 0 50px;
     font-weight: bold;
-    font-size: 28px;
-    animation: moveHeader 20s linear infinite;
+    animation: moveHeader 15s linear infinite alternate;
   }
 
-  .wish-message { 
-    color: #ff4500; /* أحمر جذاب */
-    margin-bottom: 5px;
+  .wish-message {
+    color: #ff4500;
+    font-size: 32px;
+    margin-bottom: 10px;
   }
 
-  .school-name { 
-    color: #1e90ff; /* أزرق */
+  .school-name {
+    color: #1e90ff;
+    font-size: 40px;
+    display: block;
   }
 
   @keyframes moveHeader {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
-  .director {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 12px;
-    font-weight: normal;
-    color: #000;
-    opacity: 0.9;
-    line-height: 1.4;
-  }
-
-  .class-name {
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: #ff4500;
-    text-align:center;
+    0% { transform: translateX(-10px); }
+    100% { transform: translateX(10px); }
   }
 
   .app {
@@ -110,6 +91,35 @@
     margin: auto;
     position: relative;
     flex-shrink: 0;
+  }
+
+  .class-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ff4500;
+    text-align:center;
+  }
+
+  .images-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+
+  .school-image {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 15px;
+  }
+
+  .footer {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.2);
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
   }
 
   .buttons-container {
@@ -184,41 +194,9 @@
     font-size: 14px;
   }
 
-  th {
-    background: rgba(0,0,0,0.2);
-    font-weight: bold;
-  }
-
-  tr:nth-child(even) {
-    background: rgba(0,0,0,0.05);
-  }
-
-  .day-name {
-    background: rgba(0,0,0,0.1);
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  .images-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 15px;
-  }
-
-  .school-image {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    border-radius: 15px;
-  }
-
-  .footer {
-    width: 100%;
-    padding: 10px;
-    background: rgba(0,0,0,0.2);
-    box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
-  }
+  th { background: rgba(0,0,0,0.2); font-weight: bold; }
+  tr:nth-child(even) { background: rgba(0,0,0,0.05); }
+  .day-name { background: rgba(0,0,0,0.1); font-weight: bold; font-size: 16px; }
 
 </style>
 </head>
@@ -228,32 +206,21 @@
 <div class="news-bar-container">
   <div class="news-wrapper">
     <span>📰 عاجل: زيـاتي علاء الدين يصبح مدير للثانوية&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span>📰 عاجل: ظهور حدث مهم في المدرسة&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span>📰 عاجل: ظهور ارهابية تدعى زقنون وبوزيدي بحوزتهم أسلحة AK وقنابل يدوية&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>📰 ظهور حدث مهم في المدرسة&nbsp;&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 
-<!-- الاسم والجملة المتحركان -->
+<!-- الجملة المتحركة واسم الثانوية -->
 <div class="moving-header">
-  <div class="wish-message">مع تمنياتي لكم بالنجاح</div>
+  <div class="wish-message">مع تمنياتي لكم بالنجاح 🎉</div>
   <div class="school-name">ثانوية بن نابي سليمان</div>
 </div>
 
-<!-- رسالة المدير -->
-<div class="director-message" style="text-align:center; background:#333; color:#ffd700; padding:8px; font-weight:bold; font-size:16px;">
-  مع تمنياتي لكم بالنجاح - مدير المؤسسة: زيـاتي علاء الدين
-</div>
-
+<!-- محتوى المدرسة -->
 <div class="app">
-  <div class="director">
-    مكتب المدير: زيـاتي علاء الدين<br>
-    مسؤول القسم: حليمي إسلام<br>
-    <span style="font-size:12px; font-weight:bold; color:#ff4500;">صنع من طرف علاء الدين زيـاتي</span>
-  </div>
-
   <div class="class-name">قسم 2ع2</div>
 
-  <!-- صور افتراضية في إطار المدرسة -->
+  <!-- صور افتراضية -->
   <div class="images-container">
     <img src="https://img.icons8.com/color/96/school.png" class="school-image" alt="">
     <img src="https://img.icons8.com/color/96/book.png" class="school-image" alt="">
@@ -261,124 +228,54 @@
   </div>
 </div>
 
+<!-- أزرار الفوتر -->
 <div class="footer">
   <div class="buttons-container">
-    <button onclick="showModal()">📅 جدول الحصص</button>
-    <button onclick="showActivities()">🎭 أنشطة المدرسة</button>
+    <button onclick="alert('جدول الحصص هنا')">📅 جدول الحصص</button>
+    <button onclick="alert('أنشطة المدرسة هنا')">🎭 أنشطة المدرسة</button>
     <button onclick="window.location.href='mailto:momomomo3131m@gmail.com'">📞 الاتصال بالثانوية</button>
-    <button onclick="showStudents()">👨‍🎓 قائمة التلاميذ</button>
+    <button onclick="alert('قائمة التلاميذ هنا')">👨‍🎓 قائمة التلاميذ</button>
+    <button onclick="showConfession()">✍️ اعتراف</button>
+    <button onclick="showComplaint()">📢 شكاوي</button>
   </div>
 </div>
 
-<!-- نافذة جدول الحصص -->
-<div id="timetableModal" class="modal">
+<!-- نافذة الاعتراف -->
+<div id="confessionModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>جدول الحصص - قسم 2علوم تجريبية2</h2>
-    <table>
-      <tr class="day-name"><td colspan="3">الأحد</td></tr>
-      <tr><td></td><td>8:00 - 9:00</td><td>فرنسية</td></tr>
-      <tr><td></td><td>9:00 - 10:00</td><td>إنجليزية</td></tr>
-      <tr><td></td><td>10:00 - 12:00</td><td>رياضيات</td></tr>
-      <tr class="day-name"><td colspan="3">المساء</td></tr>
-      <tr><td></td><td>13:30 - 14:30</td><td>تاريخ</td></tr>
-      <tr><td></td><td>14:30 - 15:30</td><td>اللغة العربية</td></tr>
-
-      <tr class="day-name"><td colspan="3">الاثنين</td></tr>
-      <tr><td></td><td>8:00 - 10:00</td><td>فيزياء</td></tr>
-      <tr><td></td><td>10:00 - 12:00</td><td>علوم</td></tr>
-      <tr class="day-name"><td colspan="3">المساء</td></tr>
-      <tr><td></td><td>13:00 - 14:00</td><td>العربية</td></tr>
-      <tr><td></td><td>14:00 - 15:00</td><td>فرنسية</td></tr>
-      <tr><td></td><td>15:00 - 17:00</td><td>رياضة</td></tr>
-
-      <tr class="day-name"><td colspan="3">الثلاثاء</td></tr>
-      <tr><td></td><td>الساعة الأولى</td><td>إسلامية</td></tr>
-      <tr><td></td><td>الساعة الثانية</td><td>علوم طبيعية</td></tr>
-      <tr><td></td><td>الساعة الثالثة</td><td>رياضيات</td></tr>
-      <tr><td></td><td>الساعة الرابعة</td><td>جغرافيا</td></tr>
-
-      <tr class="day-name"><td colspan="3">الأربعاء</td></tr>
-      <tr><td></td><td>8:00 - 10:00</td><td>علوم طبيعية</td></tr>
-      <tr><td></td><td>10:00 - 12:00</td><td>رياضيات</td></tr>
-      <tr class="day-name"><td colspan="3">المساء</td></tr>
-      <tr><td></td><td>الساعة الأولى</td><td>إنجليزية</td></tr>
-      <tr><td></td><td>الساعة الثانية</td><td>فيزياء</td></tr>
-
-      <tr class="day-name"><td colspan="3">الخميس</td></tr>
-      <tr><td></td><td>الساعة الأولى</td><td>إنجليزية</td></tr>
-      <tr><td></td><td>الساعة الثانية</td><td>عربية</td></tr>
-      <tr><td></td><td>الساعة الثالثة</td><td>فرنسية</td></tr>
-      <tr><td></td><td>الساعة الرابعة</td><td>إسلامية</td></tr>
-      <tr class="day-name"><td colspan="3">المساء</td></tr>
-      <tr><td></td><td>الساعة الأولى</td><td>فيزياء</td></tr>
-      <tr><td></td><td>الساعة الثانية</td><td>تاريخ</td></tr>
-    </table>
+    <span class="close" onclick="closeConfession()">&times;</span>
+    <h2>نموذج الاعتراف</h2>
+    <form action="mailto:momomomo3131m@gmail.com" method="post" enctype="text/plain">
+      <textarea name="confession" placeholder="اكتب اعترافك هنا..." style="width:100%;height:150px;padding:10px;font-size:16px;"></textarea>
+      <br><br>
+      <button type="submit" style="background:linear-gradient(135deg, #6a11cb, #2575fc); width:100%; padding:12px; font-size:18px; color:white; border:none; border-radius:10px; cursor:pointer;">
+        إرسال
+      </button>
+    </form>
   </div>
 </div>
 
-<!-- نافذة الأنشطة -->
-<div id="activitiesModal" class="modal">
+<!-- نافذة الشكاوي -->
+<div id="complaintModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeActivities()">&times;</span>
-    <h2>أنشطة المدرسة</h2>
-    <ul>
-      <li>🏃‍♂️ العدو الريفي</li>
-      <li>🏐 الكرة الطائرة</li>
-      <li>⚽ كرة القدم</li>
-      <li>🧠 مسابقة الذكاء</li>
-    </ul>
-  </div>
-</div>
-
-<!-- نافذة قائمة التلاميذ -->
-<div id="studentsModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeStudents()">&times;</span>
-    <h2>قائمة التلاميذ</h2>
-    <table>
-      <tr><th>الرقم</th><th>اسم التلميذ</th></tr>
-      <tr><td>1</td><td>زيـاتي علاء الدين</td></tr>
-      <tr><td>2</td><td>بلحاجي محمد</td></tr>
-      <tr><td>3</td><td>سريان اسمة</td></tr>
-      <tr><td>4</td><td>رفاس إلياس</td></tr>
-      <tr><td>5</td><td>حليمي اسلام</td></tr>
-      <tr><td>6</td><td>بلعقون هيثم</td></tr>
-      <tr><td>7</td><td>محلحل ياسمين</td></tr>
-      <tr><td>8</td><td>تيرس مصطفى</td></tr>
-      <tr><td>9</td><td>بوزعتر حكيم</td></tr>
-      <tr><td>10</td><td>بن مشرنن ايمان</td></tr>
-      <tr><td>11</td><td>جيلالي نور</td></tr>
-      <tr><td>12</td><td>بلحاجي فتيحة</td></tr>
-      <tr><td>13</td><td>دريش بشرى</td></tr>
-      <tr><td>14</td><td>زقنون ريحان</td></tr>
-      <tr><td>15</td><td>ديناري دعاء</td></tr>
-      <tr><td>16</td><td>رزيقي اية</td></tr>
-      <tr><td>17</td><td>ولد سعدي ميساء</td></tr>
-      <tr><td>18</td><td>برياح شفيع</td></tr>
-      <tr><td>19</td><td>برحال صورية</td></tr>
-      <tr><td>20</td><td>بوزيدي طاهر</td></tr>
-      <tr><td>21</td><td>نورين العيد</td></tr>
-      <tr><td>22</td><td>محيمدا دعاء</td></tr>
-      <tr><td>23</td><td>ضاوية</td></tr>
-      <tr><td>24</td><td>لوح وفاء</td></tr>
-      <tr><td>25</td><td>بن ديدا عبد الرحمن</td></tr>
-      <tr><td>26</td><td>بدر الدين بسملة</td></tr>
-      <tr><td>27</td><td>بشرى القصيرة</td></tr>
-      <tr><td>28</td><td>عماد</td></tr>
-    </table>
+    <span class="close" onclick="closeComplaint()">&times;</span>
+    <h2>نموذج الشكاوي</h2>
+    <form action="mailto:momomomo3131m@gmail.com" method="post" enctype="text/plain">
+      <textarea name="complaint" placeholder="اكتب شكواك هنا..." style="width:100%;height:150px;padding:10px;font-size:16px;"></textarea>
+      <br><br>
+      <button type="submit" style="background:linear-gradient(135deg, #ff416c, #ff4b2b); width:100%; padding:12px; font-size:18px; color:white; border:none; border-radius:10px; cursor:pointer;">
+        إرسال
+      </button>
+    </form>
   </div>
 </div>
 
 <script>
-  function showModal() { document.getElementById("timetableModal").style.display = "flex"; }
-  function closeModal() { document.getElementById("timetableModal").style.display = "none"; }
+  function showConfession() { document.getElementById("confessionModal").style.display = "flex"; }
+  function closeConfession() { document.getElementById("confessionModal").style.display = "none"; }
 
-  function showActivities() { document.getElementById("activitiesModal").style.display = "flex"; }
-  function closeActivities() { document.getElementById("activitiesModal").style.display = "none"; }
-
-  function showStudents() { document.getElementById("studentsModal").style.display = "flex"; }
-  function closeStudents() { document.getElementById("studentsModal").style.display = "none"; }
+  function showComplaint() { document.getElementById("complaintModal").style.display = "flex"; }
+  function closeComplaint() { document.getElementById("complaintModal").style.display = "none"; }
 </script>
 
 </body>
