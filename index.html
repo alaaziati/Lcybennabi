@@ -49,6 +49,21 @@
     100% { transform: translateX(-100%); }
   }
 
+  /* اسم الثانوية متحرك */
+  @keyframes moveSchoolName {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .school-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1a1a1a;
+    white-space: nowrap;
+    display: inline-block;
+    animation: moveSchoolName 20s linear infinite;
+  }
+
   .director-message {
     text-align:center;
     background:#333;
@@ -69,13 +84,6 @@
     margin: auto;
     position: relative;
     flex-shrink: 0;
-  }
-
-  .school-name {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #1a1a1a;
   }
 
   .director {
@@ -183,15 +191,18 @@
     font-size: 16px;
   }
 
-  ul {
-    list-style: none;
-    padding-left: 0;
+  .images-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
   }
 
-  ul li {
-    padding: 8px 0;
-    text-align: right;
-    font-size: 16px;
+  .school-image {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 15px;
   }
 
   .footer {
@@ -201,20 +212,6 @@
     box-shadow: 0 -4px 8px rgba(0,0,0,0.3);
   }
 
-  /* صور افتراضية */
-  .school-image {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    border-radius: 15px;
-  }
-
-  .images-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 15px;
-  }
 </style>
 </head>
 <body>
@@ -239,15 +236,15 @@
     مسؤول القسم: حليمي إسلام<br>
     <span style="font-size:12px; font-weight:bold; color:#ff4500;">صنع من طرف علاء الدين زيـاتي</span>
   </div>
+
   <div class="school-name">ثانوية بن نابي سليمان</div>
   <div class="class-name">قسم 2ع2</div>
 
   <!-- صور افتراضية في إطار المدرسة -->
   <div class="images-container">
-    <img src="https://img.icons8.com/color/96/school.png" class="school-image" alt="school">
-    <img src="https://img.icons8.com/color/96/book.png" class="school-image" alt="book">
-    <img src="https://img.icons8.com/color/96/student-male.png" class="school-image" alt="student">
-    <img src="https://img.icons8.com/color/96/chalkboard.png" class="school-image" alt="chalkboard">
+    <img src="https://img.icons8.com/color/96/school.png" class="school-image" alt="">
+    <img src="https://img.icons8.com/color/96/book.png" class="school-image" alt="">
+    <img src="https://img.icons8.com/color/96/student-male.png" class="school-image" alt="">
   </div>
 </div>
 
@@ -260,7 +257,7 @@
   </div>
 </div>
 
-<!-- النوافذ المنبثقة -->
+<!-- نافذة جدول الحصص -->
 <div id="timetableModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
@@ -307,6 +304,7 @@
   </div>
 </div>
 
+<!-- نافذة الأنشطة -->
 <div id="activitiesModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeActivities()">&times;</span>
@@ -320,19 +318,42 @@
   </div>
 </div>
 
+<!-- نافذة قائمة التلاميذ -->
 <div id="studentsModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeStudents()">&times;</span>
     <h2>قائمة التلاميذ</h2>
-    <ul>
-      <li>زيـاتي علاء الدين</li>
-      <li>بلحاجي محمد</li>
-      <li>سريان اسمة</li>
-      <li>رفاس إلياس</li>
-      <li>حليمي اسلام</li>
-      <li>بلعقون هيثم</li>
-      <li>عماد</li>
-    </ul>
+    <table>
+      <tr><th>الرقم</th><th>اسم التلميذ</th></tr>
+      <tr><td>1</td><td>زيـاتي علاء الدين</td></tr>
+      <tr><td>2</td><td>بلحاجي محمد</td></tr>
+      <tr><td>3</td><td>سريان اسمة</td></tr>
+      <tr><td>4</td><td>رفاس إلياس</td></tr>
+      <tr><td>5</td><td>حليمي اسلام</td></tr>
+      <tr><td>6</td><td>بلعقون هيثم</td></tr>
+      <tr><td>7</td><td>محلحل ياسمين</td></tr>
+      <tr><td>8</td><td>تيرس مصطفى</td></tr>
+      <tr><td>9</td><td>بوزعتر حكيم</td></tr>
+      <tr><td>10</td><td>بن مشرنن ايمان</td></tr>
+      <tr><td>11</td><td>جيلالي نور</td></tr>
+      <tr><td>12</td><td>بلحاجي فتيحة</td></tr>
+      <tr><td>13</td><td>دريش بشرى</td></tr>
+      <tr><td>14</td><td>زقنون ريحان</td></tr>
+      <tr><td>15</td><td>ديناري دعاء</td></tr>
+      <tr><td>16</td><td>رزيقي اية</td></tr>
+      <tr><td>17</td><td>ولد سعدي ميساء</td></tr>
+      <tr><td>18</td><td>برياح شفيع</td></tr>
+      <tr><td>19</td><td>برحال صورية</td></tr>
+      <tr><td>20</td><td>بوزيدي طاهر</td></tr>
+      <tr><td>21</td><td>نورين العيد</td></tr>
+      <tr><td>22</td><td>محيمدا دعاء</td></tr>
+      <tr><td>23</td><td>ضاوية</td></tr>
+      <tr><td>24</td><td>لوح وفاء</td></tr>
+      <tr><td>25</td><td>بن ديدا عبد الرحمن</td></tr>
+      <tr><td>26</td><td>بدر الدين بسملة</td></tr>
+      <tr><td>27</td><td>بشرى القصيرة</td></tr>
+      <tr><td>28</td><td>عماد</td></tr>
+    </table>
   </div>
 </div>
 
