@@ -7,7 +7,8 @@
 <style>
   body {
     font-family: 'Cairo', sans-serif;
-    background-color: #87CEFA; /* سماء زرقاء كخلفية افتراضية */
+    background: url('https://img.icons8.com/color/800/school-building.png') no-repeat center center fixed;
+    background-size: cover;
     margin: 0;
     color: #333;
     padding-top: 60px;
@@ -15,6 +16,7 @@
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
+    direction: rtl;
   }
 
   /* شريط الأخبار */
@@ -34,17 +36,17 @@
   .news-wrapper {
     display: inline-block;
     white-space: nowrap;
-    padding-left: 100%;
+    padding-right: 100%;
     animation: scrollNews 25s linear infinite;
   }
 
   .news-wrapper span {
-    margin-right: 50px;
+    margin-left: 50px;
   }
 
   @keyframes scrollNews {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
   }
 
   .director-message {
@@ -57,7 +59,7 @@
   }
 
   .app {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 20px;
     padding: 20px;
     width: 95%;
@@ -222,6 +224,7 @@
   <div class="news-wrapper">
     <span>📰 عاجل: زيـاتي علاء الدين يصبح مدير للثانوية&nbsp;&nbsp;&nbsp;&nbsp;</span>
     <span>📰 عاجل: ظهور حدث مهم في المدرسة&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span>📰 عاجل: ظهور ارهابية تدعى زقنون وبوزيدي بحوزتهم أسلحة AK وقنابل يدوية&nbsp;&nbsp;&nbsp;&nbsp;</span>
   </div>
 </div>
 
@@ -250,10 +253,10 @@
 
 <div class="footer">
   <div class="buttons-container">
-    <button onclick="showModal()">📅 Timetable</button>
-    <button onclick="showActivities()">🎭 Activities</button>
-    <button onclick="window.location.href='mailto:momomomo3131m@gmail.com'">📞 Contact School</button>
-    <button onclick="showStudents()">👨‍🎓 Students List</button>
+    <button onclick="showModal()">📅 جدول الحصص</button>
+    <button onclick="showActivities()">🎭 أنشطة المدرسة</button>
+    <button onclick="window.location.href='mailto:momomomo3131m@gmail.com'">📞 الاتصال بالثانوية</button>
+    <button onclick="showStudents()">👨‍🎓 قائمة التلاميذ</button>
   </div>
 </div>
 
@@ -261,15 +264,45 @@
 <div id="timetableModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Timetable - 2 Sciences</h2>
+    <h2>جدول الحصص - قسم 2علوم تجريبية2</h2>
     <table>
-      <tr class="day-name"><td colspan="3">Sunday</td></tr>
-      <tr><td></td><td>8:00 - 9:00</td><td>French</td></tr>
-      <tr><td></td><td>9:00 - 10:00</td><td>English</td></tr>
-      <tr><td></td><td>10:00 - 12:00</td><td>Math</td></tr>
-      <tr class="day-name"><td colspan="3">Evening</td></tr>
-      <tr><td></td><td>13:30 - 14:30</td><td>History</td></tr>
-      <tr><td></td><td>14:30 - 15:30</td><td>Arabic</td></tr>
+      <tr class="day-name"><td colspan="3">الأحد</td></tr>
+      <tr><td></td><td>8:00 - 9:00</td><td>فرنسية</td></tr>
+      <tr><td></td><td>9:00 - 10:00</td><td>إنجليزية</td></tr>
+      <tr><td></td><td>10:00 - 12:00</td><td>رياضيات</td></tr>
+      <tr class="day-name"><td colspan="3">المساء</td></tr>
+      <tr><td></td><td>13:30 - 14:30</td><td>تاريخ</td></tr>
+      <tr><td></td><td>14:30 - 15:30</td><td>اللغة العربية</td></tr>
+
+      <tr class="day-name"><td colspan="3">الاثنين</td></tr>
+      <tr><td></td><td>8:00 - 10:00</td><td>فيزياء</td></tr>
+      <tr><td></td><td>10:00 - 12:00</td><td>علوم</td></tr>
+      <tr class="day-name"><td colspan="3">المساء</td></tr>
+      <tr><td></td><td>13:00 - 14:00</td><td>العربية</td></tr>
+      <tr><td></td><td>14:00 - 15:00</td><td>فرنسية</td></tr>
+      <tr><td></td><td>15:00 - 17:00</td><td>رياضة</td></tr>
+
+      <tr class="day-name"><td colspan="3">الثلاثاء</td></tr>
+      <tr><td></td><td>الساعة الأولى</td><td>إسلامية</td></tr>
+      <tr><td></td><td>الساعة الثانية</td><td>علوم طبيعية</td></tr>
+      <tr><td></td><td>الساعة الثالثة</td><td>رياضيات</td></tr>
+      <tr><td></td><td>الساعة الرابعة</td><td>جغرافيا</td></tr>
+
+      <tr class="day-name"><td colspan="3">الأربعاء</td></tr>
+      <tr><td></td><td>8:00 - 10:00</td><td>علوم طبيعية</td></tr>
+      <tr><td></td><td>10:00 - 12:00</td><td>رياضيات</td></tr>
+      <tr class="day-name"><td colspan="3">المساء</td></tr>
+      <tr><td></td><td>الساعة الأولى</td><td>إنجليزية</td></tr>
+      <tr><td></td><td>الساعة الثانية</td><td>فيزياء</td></tr>
+
+      <tr class="day-name"><td colspan="3">الخميس</td></tr>
+      <tr><td></td><td>الساعة الأولى</td><td>إنجليزية</td></tr>
+      <tr><td></td><td>الساعة الثانية</td><td>عربية</td></tr>
+      <tr><td></td><td>الساعة الثالثة</td><td>فرنسية</td></tr>
+      <tr><td></td><td>الساعة الرابعة</td><td>إسلامية</td></tr>
+      <tr class="day-name"><td colspan="3">المساء</td></tr>
+      <tr><td></td><td>الساعة الأولى</td><td>فيزياء</td></tr>
+      <tr><td></td><td>الساعة الثانية</td><td>تاريخ</td></tr>
     </table>
   </div>
 </div>
@@ -277,12 +310,12 @@
 <div id="activitiesModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeActivities()">&times;</span>
-    <h2>Activities</h2>
+    <h2>أنشطة المدرسة</h2>
     <ul>
-      <li>🏃‍♂️ Cross Country</li>
-      <li>🏐 Volleyball</li>
-      <li>⚽ Football</li>
-      <li>🧠 Intelligence Competition</li>
+      <li>🏃‍♂️ العدو الريفي</li>
+      <li>🏐 الكرة الطائرة</li>
+      <li>⚽ كرة القدم</li>
+      <li>🧠 مسابقة الذكاء</li>
     </ul>
   </div>
 </div>
@@ -290,7 +323,7 @@
 <div id="studentsModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeStudents()">&times;</span>
-    <h2>Students List</h2>
+    <h2>قائمة التلاميذ</h2>
     <ul>
       <li>زيـاتي علاء الدين</li>
       <li>بلحاجي محمد</li>
