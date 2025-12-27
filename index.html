@@ -49,41 +49,35 @@
     100% { transform: translateX(-100%); }
   }
 
-  /* اسم الثانوية متحرك */
-  @keyframes moveSchoolName {
+  /* اسم الثانوية مع جملة التحية متحركة */
+  .moving-header {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .school-name, .wish-message {
+    display: inline-block;
+    padding: 0 50px;
+    font-weight: bold;
+    font-size: 28px;
+    animation: moveHeader 20s linear infinite;
+  }
+
+  .wish-message { 
+    color: #ff4500; /* أحمر جذاب */
+    margin-bottom: 5px;
+  }
+
+  .school-name { 
+    color: #1e90ff; /* أزرق */
+  }
+
+  @keyframes moveHeader {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
-  }
-
-  .school-name {
-    font-size: 28px;
-    font-weight: bold;
-    color: #1a1a1a;
-    white-space: nowrap;
-    display: inline-block;
-    animation: moveSchoolName 20s linear infinite;
-  }
-
-  .director-message {
-    text-align:center;
-    background:#333;
-    color:#ffd700;
-    padding:8px;
-    font-weight:bold;
-    font-size:16px;
-  }
-
-  .app {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 20px;
-    padding: 20px;
-    width: 95%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    margin: auto;
-    position: relative;
-    flex-shrink: 0;
   }
 
   .director {
@@ -102,6 +96,20 @@
     font-weight: bold;
     margin-top: 20px;
     color: #ff4500;
+    text-align:center;
+  }
+
+  .app {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 20px;
+    width: 95%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    margin: auto;
+    position: relative;
+    flex-shrink: 0;
   }
 
   .buttons-container {
@@ -225,8 +233,14 @@
   </div>
 </div>
 
+<!-- الاسم والجملة المتحركان -->
+<div class="moving-header">
+  <div class="wish-message">مع تمنياتي لكم بالنجاح</div>
+  <div class="school-name">ثانوية بن نابي سليمان</div>
+</div>
+
 <!-- رسالة المدير -->
-<div class="director-message">
+<div class="director-message" style="text-align:center; background:#333; color:#ffd700; padding:8px; font-weight:bold; font-size:16px;">
   مع تمنياتي لكم بالنجاح - مدير المؤسسة: زيـاتي علاء الدين
 </div>
 
@@ -237,7 +251,6 @@
     <span style="font-size:12px; font-weight:bold; color:#ff4500;">صنع من طرف علاء الدين زيـاتي</span>
   </div>
 
-  <div class="school-name">ثانوية بن نابي سليمان</div>
   <div class="class-name">قسم 2ع2</div>
 
   <!-- صور افتراضية في إطار المدرسة -->
